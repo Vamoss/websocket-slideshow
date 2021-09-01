@@ -67,14 +67,25 @@ function initPresenter(){
 
 function onPresenterDataLoaded() {
     var active = 0;
-    var prevElement;
     function setActive(index) {
-        var children = document.querySelector('.container').children;
+        var previousElements = document.querySelectorAll('.active'), i;
+        for (i = 0; i < previousElements.length; ++i) {
+            var prevElement = previousElements[i];
+            prevElement.classList.remove("active");
+            var prevMediaElement = prevElement.querySelector(".mediaContainer").firstChild;
+            if(prevMediaElement.nodeName == "VIDEO"){
+                prevMediaElement.pause();
+                setTimeout(() => prevMediaElement.currentTime = 0, 500);
+            }
+        }
+        
+        setActiveSingle(index, "left");
+        setActiveSingle(index+1, "right");
+    }
 
-        if(index < 0)
-            index = children.length-1;
-        else if(index >= children.length)
-            index = 0;
+    function setActiveSingle(index, position) {
+        var children = document.querySelector('.container').children;
+        index = (index+children.length)%children.length;
 
         active = index;
         var element = children.item(index);
@@ -86,21 +97,15 @@ function onPresenterDataLoaded() {
         }
 
         element.classList.add("active");
-        if(prevElement) {
-            prevElement.classList.remove("active");
-            var prevMediaElement = prevElement.querySelector(".mediaContainer").firstChild;
-            if(prevMediaElement.nodeName == "VIDEO"){
-                prevMediaElement.pause();
-                setTimeout(() => prevMediaElement.currentTime = 0, 500);
-            }
-        }
-        prevElement = element;
+        element.classList.remove("left");
+        element.classList.remove("right");
+        element.classList.add(position);
     }
     setActive(0);
 
     socket.on('change', function (data) {
         if(data == "prev")
-            setActive(active-1);
+            setActive(active-3);
         if( data == "next")
             setActive(active+1);
     });

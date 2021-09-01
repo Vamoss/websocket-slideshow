@@ -1,6 +1,8 @@
 # Websocket Slideshow
 A simple application to display video and photos slideshows with a remote control.
 
+PS: This branch displays two assets at same time.
+
 ### Installing and running
 
 1. `npm install`

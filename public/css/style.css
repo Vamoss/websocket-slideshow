@@ -24,15 +24,22 @@ Presenter
 .slide {
     position: absolute;
     top: 0px;
-    left: 0px;
     height: 100%;
-    width: 100%;
+    width: 50%;
     opacity: 0;
     color: #FFF;
     transition-duration: 0.5s;
     transition-delay: 0ms;
     transition-property: opacity;
     animation-fill-mode: forwards;
+}
+
+.left {
+    left: 0px;
+}
+
+.right {
+    left: 50%;
 }
 
 .mediaContainer {
@@ -42,7 +49,7 @@ Presenter
     width: 100%;
 }
 
-img {
+img, video {
     object-fit: scale-down;
     width: 100%;
 }
