@@ -1,0 +1,30 @@
+{
+  "name": "websocket-slideshow",
+  "version": "1.0.0",
+  "description": "control a slideshow from mobile",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vamoss/websocket-slideshow.git"
+  },
+  "keywords": [
+    "websocket",
+    "control",
+    "mobile",
+    "presentation"
+  ],
+  "author": "Vamoss",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vamoss/websocket-slideshow/issues"
+  },
+  "homepage": "https://github.com/Vamoss/websocket-slideshow#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.2.0"
+  }
+}
