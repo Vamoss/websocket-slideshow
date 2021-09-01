@@ -16,4 +16,4 @@ The controller url:
 [http://localhost:7890/](http://localhost:7890/)
 
 ### Update assets
-The images and videos are populated at [public/data.json](./blob/master/public/data.json).
+The images and videos are populated at [public/data.json](./public/data.json).
